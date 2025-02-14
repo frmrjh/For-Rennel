@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Rennel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffdde1;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            top: 0;
+            left: 50px;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ff4081;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #e6005c;
+        }
+        .letter {
+            width: 80%;
+            max-width: 500px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s;
+        }
+        .letter img {
+            width: 1.75in;
+            height: 2in;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-screen">
+        <div class="heart"></div>
+        <h1>Hi!</h1>
+        <button class="btn" onclick="showLetter()">Click me! 💌</button>
+    </div>
+    
+    <div class="container hidden" id="letter-screen">
+        <div class="letter">
+            <h2>To my dearest Luningning 😸💖,</h2>
+            <p>Happy Heart's Day! Thank you so much for bringing sunshine on my darkest days, thank you for making me happy, and thank you for accepting me for who I am. I always pray for you and for us. Always remember that I really really love you and I cherish every moment that I'm with you. I want to create more good, cute, or worst memories with you, and I want to be with you forever. 💖</p>
+            <img src="1.jpg" alt="Love Image">
+            <p>Love,</p>
+            <p>Ferming 😸</p>
+        </div>
+        <button class="btn" onclick="goBack()">< Back</button>
+    </div>
+    
+    <script>
+        function showLetter() {
+            document.getElementById('main-screen').classList.add('hidden');
+            document.getElementById('letter-screen').classList.remove('hidden');
+        }
+        function goBack() {
+            document.getElementById('letter-screen').classList.add('hidden');
+            document.getElementById('main-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
